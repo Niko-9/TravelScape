@@ -7,9 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelScape | Gallery</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lightgallery.css">
+    <link rel="stylesheet" href="css/lg-fb-comment-box.css">
 </head>
 
 <body>
+    <div id="fb-root"></div>
+     
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
     <!--main navigation start-->
     <nav id="main-nav">
         <div class="container">
@@ -28,6 +42,92 @@
         </div>
     </nav>
     <!--main navigation end-->
+
+    <!--Gallery Images start-->
+    <section id="gallery">
+        <div class="container">
+
+
+            <div id="comment-box">
+                <a href="images/showcase_map.jpg"
+                    data-sub-html='<div class="fb-comments" data-href="http://sachinchoolur.github.io/lightgallery.js/demos/comment-box.html#lg=1&slide=0" data-width="400" data-numposts="5"></div>'>
+                    <img src="images/showcase_map.jpg" />
+                </a>
+                <a href="images/showcase_map.jpg"
+                    data-sub-html='<div class="fb-comments" data-href="http://sachinchoolur.github.io/lightgallery.js/demos/comment-box.html#lg=1&slide=1" data-width="400" data-numposts="5"></div>'>
+                    <img src="images/showcase_map.jpg" />
+                </a>
+                <a href="images/showcase_map.jpg"
+                    data-sub-html='<div class="fb-comments" data-href="http://sachinchoolur.github.io/lightgallery.js/demos/comment-box.html#lg=1&slide=1" data-width="400" data-numposts="5"></div>'>
+                    <img src="images/showcase_map.jpg" />
+                </a>
+                <a href="images/showcase_map.jpg"
+                    data-sub-html='<div class="fb-comments" data-href="http://sachinchoolur.github.io/lightgallery.js/demos/comment-box.html#lg=1&slide=1" data-width="400" data-numposts="5"></div>'>
+                    <img src="images/showcase_map.jpg" />
+                </a>
+            </div>
+
+
+        </div>
+    </section>
+    <!--Gallery Images end-->
+    <script src="js/lightgallery.js"></script>
+    <script src="js/lg-hash.js"></script>
+    <script>
+
+
+var commentBox = document.getElementById('comment-box');
+     
+
+
+
+
+     lightGallery(commentBox, {
+         appendSubHtmlTo: '.lg-item',
+         addClass: 'fb-comments',
+         mode: 'lg-fade',
+         download: true,
+         enableDrag: true,
+         enableSwipe: true
+     });
+      
+     commentBox.addEventListener('onAfterSlide', function(event) {
+         var items = document.querySelectorAll('.lg-outer .lg-item');
+         if (!items[event.detail.index].getAttribute('data-fb')) {
+             try {
+                 items[event.detail.index].setAttribute('data-fb', 'loaded');
+                 FB.XFBML.parse();
+             } catch (err) {
+                 window.addEventListener('fbAsyncInit', function() {
+                     items[event.detail.index].setAttribute('data-fb', 'loaded');
+                     FB.XFBML.parse();
+                 });
+             }
+         }
+     });
+ 
+
+
+     var commentBoxSep = document.getElementById('comment-box-sep');
+     
+     lightGallery(commentBoxSep, {
+         addClass: 'fb-comments',
+         download: false,
+         galleryId: 2
+     });
+      
+     commentBoxSep.addEventListener('onAfterAppendSubHtml', function() {
+         try {
+             FB.XFBML.parse();
+         } catch (err) {
+             window.addEventListener('fbAsyncInit', function() {
+                 FB.XFBML.parse();
+             });
+         }
+     });
+ 
+  
+    </script>
 </body>
 
 </html>
