@@ -66,15 +66,12 @@
                     <img src="images/showcase_map.jpg" />
                 </a>
             </div>
-
-
         </div>
     </section>
     <!--Gallery Images end-->
     <script src="js/lightgallery.js"></script>
     <script src="js/lg-hash.js"></script>
     <script>
-
 
 var commentBox = document.getElementById('comment-box');
      
@@ -90,7 +87,7 @@ var commentBox = document.getElementById('comment-box');
          enableDrag: true,
          enableSwipe: true
      });
-      
+
      commentBox.addEventListener('onAfterSlide', function(event) {
          var items = document.querySelectorAll('.lg-outer .lg-item');
          if (!items[event.detail.index].getAttribute('data-fb')) {
@@ -126,7 +123,6 @@ var commentBox = document.getElementById('comment-box');
          }
      });
  
-  
     </script>
 </body>
 
