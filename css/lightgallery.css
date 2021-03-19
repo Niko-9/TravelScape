@@ -1104,7 +1104,7 @@ body:not(.lg-from-hash)
   right: 0;
   bottom: 0;
   z-index: 1040;
-  background: #222;
+  background: #223;
   opacity: 0;
   -webkit-transition: opacity 0.15s ease 0s;
   -o-transition: opacity 0.15s ease 0s;
@@ -1114,7 +1114,6 @@ body:not(.lg-from-hash)
 .lg-backdrop.in {
   opacity: 1;
 }
-
 .lg-css3.lg-no-trans .lg-prev-slide,
 .lg-css3.lg-no-trans .lg-next-slide,
 .lg-css3.lg-no-trans .lg-current {

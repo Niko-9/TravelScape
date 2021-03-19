@@ -31,7 +31,6 @@ a {
   --border-width-card: 3px;
 
   --max-width: 1100px;
-  --mid-break-point: 720px;
 }
 /*Util*/
 
@@ -173,6 +172,9 @@ section > h2::after {
   white-space: pre;
   margin: 0 -2px;
 }
+section:first-of-type {
+  padding-top: 140px;
+}
 section > h2 {
   text-decoration: 4px underline var(--secondary-color);
   text-underline-offset: 6px;
@@ -184,6 +186,7 @@ section > h2 {
   color: #fafafafa;
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 10;
@@ -215,7 +218,20 @@ section > h2 {
 #main-nav #nav-links li a:hover {
   border-bottom: 4px solid gold;
 }
-
+/*table*/
+#specialist-facts {
+  border-collapse: collapse;
+  border: 2px solid #ccc;
+  width: 100%;
+}
+#specialist-facts thead {
+  background-color: #ccc;
+  font-weight: bold;
+}
+#specialist-facts tr td {
+  border-bottom: 2px solid #ccc;
+  padding: 10px 20px;
+}
 /*make burger menu*/
 /*the burger menu is hidden for large screen*/
 .burger {
@@ -229,47 +245,6 @@ section > h2 {
   margin: 4px 0;
 
   transition: all 150ms ease-in 50ms;
-}
-
-/*Introduce Media Queries for smalle devices screens*/
-
-@media only screen and (max-width: 620px) {
-  .burger {
-    display: block;
-  }
-
-  #main-nav #nav-links {
-    background-color: white;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: space-around;
-    position: fixed;
-    top: 46px;
-    right: 0px;
-    width: 40%;
-    height: 92vh;
-    transform: translate(100%);
-    transition: transform 350ms ease-in 200ms;
-    visibility: hidden;
-  }
-  #main-nav #nav-links li {
-    color: #0b2027;
-    opacity: 0;
-  }
-  .burgerToggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-  }
-  .burgerToggle .line2 {
-    opacity: 0;
-  }
-  .burgerToggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-  }
-  #main-nav #nav-links.nav-active {
-    transform: translateX(0%);
-    visibility: visible;
-  }
 }
 
 @keyframes fadeIn {
@@ -290,8 +265,13 @@ section > h2 {
   align-items: center;
   position: relative;
   text-align: center;
-  top: -80px;
   height: 700px;
+}
+#main-section {
+  background: black;
+}
+#main-section .overlap > :not(a) {
+  text-shadow: 0px 0px 8px black;
 }
 #main-section .overlap {
   position: absolute;
@@ -299,11 +279,12 @@ section > h2 {
   display: flex;
   flex-flow: column;
   align-items: center;
-  font-size: 1.8em;
+  font-size: 2rem;
+  line-height: 1;
   color: white;
 }
 #main-section .overlap p {
-  font-size: 1rem;
+  font-size: 0.85em;
 }
 .swiper-container {
   width: 100%;
@@ -320,8 +301,6 @@ section > h2 {
 #signup {
   display: flex;
   justify-content: center;
-  margin: 40px 40px 40px 40px;
-  padding: 20px 0px;
 
   background-color: #fff;
 }
@@ -384,6 +363,7 @@ section > h2 {
 #signup label {
   display: block;
   width: 100%;
+  text-align: start;
 }
 
 #signup a {
@@ -446,9 +426,11 @@ button[type="submit"] {
   padding: 5px 0px;
   font-size: 0.9rem;
 }
-.quick-links .container {
+.quick-links > .container {
   display: flex;
   justify-content: space-around;
+  flex-flow: row wrap;
+  gap: 40px;
 }
 /*site info styling*/
 .site-info {
@@ -456,10 +438,10 @@ button[type="submit"] {
 }
 .site-info .container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
 }
-
 /*welcome stlying*/
 
 /*testimonials styling*/
@@ -485,7 +467,7 @@ button[type="submit"] {
   position: relative;
   z-index: 1;
   right: 80px;
-  top: 90px;
+  top: 120px;
   font-size: 2em;
   color: var(--primary-color);
 }
@@ -499,7 +481,10 @@ button[type="submit"] {
   color: var(--primary-color);
 }
 .profile-img {
-  width: 100px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: top;
   border-radius: 50%;
   position: relative;
   top: -60px;
@@ -513,7 +498,6 @@ button[type="submit"] {
   margin: 5px 0 10px 0;
   font-size: 0.8em;
 }
-
 /*top destinations styling*/
 #top-destination-section > .container {
   display: flex;
@@ -532,18 +516,20 @@ button[type="submit"] {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 #top-trip-section .card-title:hover {
   opacity: 0.8;
 }
 #top-trip-section .card {
   width: 340px;
-  height: auto;
+  height: 620px;
+  overflow: hidden;
   background-color: white;
   border: 1px solid var(--light-grey-color);
 }
 #top-trip-section .card-img {
+  height: 300px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -568,6 +554,7 @@ button[type="submit"] {
   border: 1px solid var(--light-grey-color);
 }
 #travel-specialist-section .card-img {
+  height: 300px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -611,7 +598,7 @@ button[type="submit"] {
   display: flex;
   flex-flow: column wrap;
   justify-self: flex-start;
-  align-items: flex-start;
+  align-items: center;
   text-align: start;
 }
 #contact-section .container > *,
@@ -623,15 +610,215 @@ button[type="submit"] {
   line-height: 1.5;
 }
 
+/*Destination Introducition Styling*/
+#introduction-section {
+  margin: 0 40px;
+}
+#introduction-section > p {
+  padding-bottom: 80px;
+}
+#introduction-section > .container h3,
+#introduction-section > .container p {
+  text-align: start;
+}
+
+/*Intro Trip Stlying*/
+
+#layout-content {
+  display: grid;
+  grid-template-columns: 2fr 1.8fr;
+  grid-template-rows: repeat(8, 250px);
+  justify-content: space-around;
+
+  margin: 0 20px;
+}
+#layout-content > aside {
+  padding-top: 150px;
+  grid-column: 2 / 2;
+  margin: 0 30px;
+}
+#layout-content aside > div {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 10px 30px;
+  font-size: 0.8rem;
+  background-color: #ddd;
+}
+#layout-content aside > div > * {
+  margin: 5px;
+}
+#layout-content aside > div > .card {
+  display: grid;
+  grid-template-columns: max-content auto;
+  grid-template-rows: repeat(auto-fit, 50px);
+  grid-gap: 10px;
+  min-width: 100%;
+}
+#layout-content aside > div > .card a {
+  grid-row: 1 / span 2;
+}
+
+#layout-content aside div .card .card-description,
+#layout-content .card-title {
+  margin: 0;
+  padding: 0;
+}
+#layout-content aside > div > .card a,
+#layout-content aside > div > .card img {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+/*intdoduction trip styling start */
+#introduction-trip-section > .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-flow: column wrap;
+  text-align: start;
+}
+#introduction-trip-section img{
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+#introduction-trip-section table {
+  border-collapse: collapse;
+}
+#introduction-trip-section table thead {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#introduction-trip-section table tr,
+#introduction-trip-section table td {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+/*intoduction specialist styling*/
+#introduction-specialist-section > .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+#introduction-specialist-section > .container > div {
+  max-width: 450px;
+}
+#introduction-specialist-section img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+}
+#introduction-specialist-section {
+  text-align: start;
+}
+
 /*Gallery page styling*/
 #gallery > .container #comment-box {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-flow: dense;
-  grid-gap: 4px;
+  grid-auto-rows: minmax(200px, 0.5fr);
+  gap: 15px;
+}
+#gallery img:hover {
+  filter: contrast(100%) brightness(40%);
+  transition: all 350ms 100ms;
 }
 #gallery img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/*Introduce Media Queries for smalle devices screens*/
+
+@media only screen and (max-width: 992px) {
+  #introduction-trip-section img {
+    width: 80%;
+  }
+  #layout-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 350px;
+  }
+  #layout-content aside {
+    min-width: 60%;
+    margin: 0 40px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  #main-nav #nav-links {
+    background-color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 46px;
+    right: 0px;
+    width: 100%;
+    height: 94vh;
+    transform: translate(100%);
+    transition: transform 350ms ease-in 200ms;
+    visibility: hidden;
+  }
+  #main-nav #nav-links li {
+    color: #0b2027;
+    opacity: 0;
+  }
+  .burgerToggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .burgerToggle .line2 {
+    opacity: 0;
+  }
+  .burgerToggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  #main-nav #nav-links.nav-active {
+    transform: translateX(0%);
+    visibility: visible;
+  }
+
+
+  .subsribe .container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+  }
+  .subsribe .container > div
+  {
+    display: flex;
+  }
+  .subsribe input[type="text"] {
+    width: 95%;
+  }
+  .subsribe input[type="submit"] {
+    width: 95%;
+  }
+
+  .quick-links .container > * {
+    width: 240px;
+  }
+  .site-info .container {
+    flex-flow: column wrap;
+    align-items: center;
+    text-align: center;
+  }
+  .site-info .copyright {
+    order: 2;
+  }
 }
