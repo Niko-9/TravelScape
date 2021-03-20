@@ -5,7 +5,7 @@ const navSlide = () => {
   const mainNavLinksLi = mainNavLinks.querySelectorAll("li");
   var scrollToggler = toggleScroll();
 
-  window.addEventListener("scroll",(event)=>
+  window.addEventListener("scroll",()=>
   {
       mainNav.classList[window.scrollY > 350 ?"add":"remove"]("scrolledPass");
   });

@@ -194,7 +194,7 @@ section > h2 {
   right: 0;
   z-index: 10;
 
-  transition: background-color 500ms 50ms;
+  transition: background-color 250ms 20ms;
 }
 #main-nav.scrolledPass {
   background-color: #264c67;
@@ -556,8 +556,13 @@ button[type="submit"] {
   border: var(--border-width-card) solid var(--primary-color);
   box-shadow: 0 0 2px 2px lightgray;
 }
-/*top trips styling*/
+#top-destination-section .card a:hover img
+{
+  filter: contrast(100%) brightness(40%);
+  transition: all 250ms 50ms;
+}
 
+/*top trips styling*/
 #top-trip-section > .container {
   display: flex;
   flex-flow: row wrap;
@@ -772,9 +777,10 @@ button[type="submit"] {
   grid-auto-rows: minmax(200px, 0.5fr);
   gap: 15px;
 }
-#gallery img:hover {
+#gallery img:hover
+{
   filter: contrast(100%) brightness(40%);
-  transition: all 350ms 100ms;
+  transition: all 250ms 50ms;
 }
 #gallery img {
   width: 100%;
