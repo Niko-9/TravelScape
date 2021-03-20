@@ -1,24 +1,44 @@
 const navSlide = () => {
   const burger = document.querySelector(".burger");
-  const mainNav = document.querySelector("#nav-links");
-  const mainNavLinks = mainNav.querySelectorAll("li");
+  const mainNav = document.querySelector("#main-nav")
+  const mainNavLinks = document.querySelector("#nav-links");
+  const mainNavLinksLi = mainNavLinks.querySelectorAll("li");
+  var scrollToggler = toggleScroll();
+
+  window.addEventListener("scroll",(event)=>
+  {
+      mainNav.classList[window.scrollY > 350 ?"add":"remove"]("scrolledPass");
+  });
 
   burger.addEventListener("click", (e) => {
     burger.classList.toggle("burgerToggle");
-    mainNav.classList.toggle("nav-active");
-    mainNavLinks.forEach((link, index) => {
+    mainNavLinks.classList.toggle("nav-active");
+    scrollToggler();
+    mainNavLinksLi.forEach((link, index) => {
       if (link.style.animation) link.style.animation = "";
       else
         link.style.animation = `fadeIn 0.6s ease forwards ${index / 5 + 0.5}s`;
     });
   });
 };
-
+function toggleScroll() {
+  var on = false;
+  return () => {
+    on = !on;
+    if (on) {
+      var x = window.scrollX;
+      var y = window.scrollY;
+      window.onscroll = function () {
+        window.scrollTo(x, y);
+      };
+    } else window.onscroll = function () {};
+  };
+}
 const swiper = () => {
   if (document.querySelector(".swiper-container") !== null)
     new Swiper(".swiper-container", {
       // Optional parameters
-      direction: "vertical",
+      direction: "horizontal",
       loop: true,
       speed: 1000,
       // If we need pagination
@@ -44,8 +64,7 @@ const swiper = () => {
 //useful function to data valadation
 function printInputError(element, message) {
   var errorSpan = element.parentNode.querySelector(".error");
-  if(errorSpan!== null)
-  errorSpan.innerText = message;
+  if (errorSpan !== null) errorSpan.innerText = message;
 }
 
 function isValidEmail(element) {

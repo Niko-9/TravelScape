@@ -187,12 +187,17 @@ section > h2 {
 /*style nav bar*/
 #main-nav {
   color: #fafafafa;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+
+  transition: background-color 500ms 50ms;
+}
+#main-nav.scrolledPass {
+  background-color: #264c67;
 }
 #main-nav .container {
   display: flex;
@@ -269,9 +274,10 @@ section > h2 {
   position: relative;
   text-align: center;
   height: 700px;
-}
-#main-section {
-  background: black;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 #main-section .overlap > :not(a) {
   text-shadow: 0px 0px 8px black;
@@ -826,7 +832,7 @@ button[type="submit"] {
     flex-flow: column wrap;
     justify-items: center;
   }
-  .subsribe input{
+  .subsribe input {
     width: 95%;
   }
 
