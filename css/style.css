@@ -778,7 +778,7 @@ button[type="submit"] {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     position: fixed;
     top: 46px;
     right: 0px;
@@ -789,6 +789,7 @@ button[type="submit"] {
     visibility: hidden;
   }
   #main-nav #nav-links li {
+    margin: 50px;
     color: #0b2027;
     opacity: 0;
   }
