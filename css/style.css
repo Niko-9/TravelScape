@@ -773,13 +773,12 @@ button[type="submit"] {
   .burger {
     display: block;
   }
-
   #main-nav #nav-links {
     background-color: white;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     position: fixed;
     top: 46px;
     right: 0px;
