@@ -35,7 +35,8 @@ a {
 /*Util*/
 
 .control {
-  padding-bottom: 10px;
+  display: flex;
+  flex-flow: column;
 }
 .btn {
   outline: none;
@@ -146,7 +147,9 @@ a {
 input {
   padding: 10px;
 }
-input:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
   border: 2px solid grey;
   outline: none;
 }
@@ -317,10 +320,11 @@ section > h2 {
   color: #0b2027;
 }
 .welcome-message {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .notation-message {
-  margin-bottom: 20px;
+  margin-top: 45px;
+  margin-bottom: 10px;
 }
 
 .notation-message p,
@@ -331,7 +335,7 @@ section > h2 {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
 }
 
 #sign-form > * {
@@ -349,15 +353,22 @@ section > h2 {
   left: 0;
   top: 0;
   bottom: 0;
-  height: calc(100% - 70px);
+  height: calc(100% - 90px);
 }
+#sign-form .error {
+  text-align: end;
+  color: crimson;
+  font-size: 0.8em;
+  height: 4px;
+}
+
 #social-media {
   display: flex;
   flex-flow: column;
   justify-content: center;
   max-width: 450px;
   min-width: 250px;
-  padding: 5px 60px;
+  padding: 5px 40px;
 }
 #signup input,
 #signup label {
@@ -398,8 +409,12 @@ button[type="submit"] {
   padding: 8px 0;
   border-bottom: 2px solid;
 }
+.subsribe .container > div {
+  display: flex;
+  justify-content: space-between;
+}
 .subsribe input {
-  margin: 0 10px;
+  margin: 10px;
 }
 .follow .container {
   display: flex;
@@ -673,7 +688,6 @@ button[type="submit"] {
   width: 100px;
   height: 100px;
 }
-
 /*intdoduction trip styling start */
 #introduction-trip-section > .container {
   display: flex;
@@ -682,7 +696,7 @@ button[type="submit"] {
   flex-flow: column wrap;
   text-align: start;
 }
-#introduction-trip-section img{
+#introduction-trip-section img {
   width: 100%;
   height: 450px;
   object-fit: cover;
@@ -793,20 +807,26 @@ button[type="submit"] {
     visibility: visible;
   }
 
-
+  #sign-form {
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  #sign-form form::before {
+    display: none;
+  }
+  #sign-form #social-media {
+    margin-top: 60px;
+    order: 1;
+  }
   .subsribe .container {
     display: flex;
     flex-flow: column wrap;
     justify-items: center;
   }
-  .subsribe .container > div
-  {
-    display: flex;
-  }
-  .subsribe input[type="text"] {
-    width: 95%;
-  }
-  .subsribe input[type="submit"] {
+  .subsribe input{
     width: 95%;
   }
 

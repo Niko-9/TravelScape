@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelScape | Gallery</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/lightgallery.css">
     <link rel="stylesheet" href="css/lg-fb-comment-box.css">
@@ -129,7 +132,7 @@
                     <P>Subsribe to our newsletter</P>
                 </div>
                 <form action="contact">
-                    <input type="text" placeholder="Email">
+                    <input type="email" placeholder="Email" required>
                     <input type="submit" value="Subsribe" class="btn primary-btn">
                 </form>
             </div>
@@ -249,25 +252,6 @@
             }
         });
 
-
-
-        var commentBoxSep = document.getElementById('comment-box-sep');
-
-        lightGallery(commentBoxSep, {
-            addClass: 'fb-comments',
-            download: false,
-            galleryId: 2
-        });
-
-        commentBoxSep.addEventListener('onAfterAppendSubHtml', function () {
-            try {
-                FB.XFBML.parse();
-            } catch (err) {
-                window.addEventListener('fbAsyncInit', function () {
-                    FB.XFBML.parse();
-                });
-            }
-        });
 
     </script>
 </body>

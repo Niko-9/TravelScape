@@ -50,26 +50,31 @@
                     <button class="btn twitter-btn">Twitter</button>
                     <button class="btn facebook-btn">Facebook</button>
                 </div>
-                <form action="">
+                <form action="" novalidate="novalidate">
                     <div class="control">
                         <label for="f-name">First Name</label>
-                        <input type="text" id="f-name" placeholder="John">
+                        <input type="text" id="f-name" placeholder="John" required>
+                        <span class="error"></span>
                     </div>
                     <div class="control">
                         <label for="l-name">Last Name</label>
-                        <input type="text" id="l-name" placeholder="Doe">
+                        <input type="text" id="l-name" placeholder="Doe" required>
+                        <span class="error"></span>
                     </div>
                     <div class="control">
-                        <label for="email">Email Adresse</label>
-                        <input type="text" id="email" placeholder="john.doe@exmaple.com">
+                        <label for="email">Email Adress</label>
+                        <input type="email" id="email" placeholder="john.doe@exmaple.com" required>
+                        <span class="error"></span>
                     </div>
                     <div class="control">
                         <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="*********">
+                        <input type="password" id="password" placeholder="*********" required>
+                        <span class="error"></span>
                     </div>
                     <div class="control">
                         <label for="r-password">Confirm Password</label>
-                        <input type="password" id="r-password" placeholder="*********">
+                        <input type="password" id="re-password" placeholder="*********" required>
+                        <span class="error"></span>
                     </div>
                     <div class="notation-message">
                         <p>by submitting you agree to our <a href="terms.index">Terms Of Service</a>
@@ -92,7 +97,7 @@
                     <P>Subsribe to our newsletter</P>
                 </div>
                 <form action="contact">
-                    <input type="text" placeholder="Email">
+                    <input type="email" placeholder="Email" required>
                     <input type="submit" value="Subsribe" class="btn primary-btn">
                 </form>
             </div>
