@@ -1,13 +1,28 @@
 const navSlide = () => {
   const burger = document.querySelector(".burger");
-  const mainNav = document.querySelector("#main-nav")
+  const mainNav = document.querySelector("#main-nav");
   const mainNavLinks = document.querySelector("#nav-links");
   const mainNavLinksLi = mainNavLinks.querySelectorAll("li");
-  var scrollToggler = toggleScroll();
+  var scrollToggler = (() => {
+    var on = false;
+    return () => {
+      on = !on;
+      if (on) {
+        mainNav.classList.add("inDrop");
+        var x = window.scrollX;
+        var y = window.scrollY;
+        window.onscroll = function () {
+          window.scrollTo(x, y);
+        };
+      } else {
+        mainNav.classList.remove("inDrop");
+        window.onscroll = function () {};
+      }
+    };
+  })();
 
-  window.addEventListener("scroll",()=>
-  {
-      mainNav.classList[window.scrollY > 350 ?"add":"remove"]("scrolledPass");
+  window.addEventListener("scroll", () => {
+    mainNav.classList[window.scrollY > 350 ? "add" : "remove"]("scrolledPass");
   });
 
   burger.addEventListener("click", (e) => {
@@ -21,19 +36,6 @@ const navSlide = () => {
     });
   });
 };
-function toggleScroll() {
-  var on = false;
-  return () => {
-    on = !on;
-    if (on) {
-      var x = window.scrollX;
-      var y = window.scrollY;
-      window.onscroll = function () {
-        window.scrollTo(x, y);
-      };
-    } else window.onscroll = function () {};
-  };
-}
 const swiper = () => {
   if (document.querySelector(".swiper-container") !== null)
     new Swiper(".swiper-container", {
@@ -41,6 +43,8 @@ const swiper = () => {
       direction: "horizontal",
       loop: true,
       speed: 1000,
+      observer: true,
+      observeParents: true,
       // If we need pagination
       pagination: {
         el: ".swiper-pagination",

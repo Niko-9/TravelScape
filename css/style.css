@@ -196,8 +196,9 @@ section > h2 {
 
   transition: background-color 250ms 20ms;
 }
-#main-nav.scrolledPass {
-  background-color: #264c67;
+#main-nav.scrolledPass, 
+#main-nav.inDrop {
+  background-color: #0F2032; /*#264c67;*/
 }
 #main-nav .container {
   display: flex;
@@ -207,8 +208,7 @@ section > h2 {
   height: 60px;
 }
 
-#main-nav h1 a
-{
+#main-nav h1 a {
   display: flex;
   align-items: center;
 }
@@ -216,6 +216,10 @@ section > h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+#main-nav #nav-links li.isolated
+{
+  margin-left: 85px;
 }
 #main-nav #nav-links li a {
   font-weight: bold;
@@ -227,7 +231,6 @@ section > h2 {
   border-bottom: 4px solid gold;
 }
 
-
 /*table*/
 #specialist-facts {
   border-collapse: collapse;
@@ -235,12 +238,17 @@ section > h2 {
   width: 100%;
 }
 #specialist-facts thead {
-  background-color: #ccc;
+  background-color: var(--secondary-color);
+  color: white;
   font-weight: bold;
 }
 #specialist-facts tr td {
   border-bottom: 2px solid #ccc;
   padding: 10px 20px;
+}
+#specialist-facts tr td:nth-child(1)
+{
+  font-weight: bold;
 }
 /*make burger menu*/
 /*the burger menu is hidden for large screen*/
@@ -286,6 +294,7 @@ section > h2 {
 }
 #main-section .overlap {
   position: absolute;
+  bottom: 140px;
   z-index: 2;
   display: flex;
   flex-flow: column;
@@ -308,7 +317,7 @@ section > h2 {
   text-align: center;
   font-size: 18px;
   background: white;
-  overflow:hidden;
+  overflow: hidden;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -556,8 +565,7 @@ button[type="submit"] {
   border: var(--border-width-card) solid var(--primary-color);
   box-shadow: 0 0 2px 2px lightgray;
 }
-#top-destination-section .card a:hover img
-{
+#top-destination-section .card a:hover img {
   filter: contrast(100%) brightness(40%);
   transition: all 250ms 50ms;
 }
@@ -677,7 +685,7 @@ button[type="submit"] {
 
 #layout-content {
   display: grid;
-  grid-template-columns: 2fr 1.8fr;
+  grid-template-columns: 2fr 1.6fr;
   grid-template-rows: repeat(8, 250px);
   justify-content: space-around;
 
@@ -777,8 +785,7 @@ button[type="submit"] {
   grid-auto-rows: minmax(200px, 0.5fr);
   gap: 15px;
 }
-#gallery img:hover
-{
+#gallery img:hover {
   filter: contrast(100%) brightness(40%);
   transition: all 250ms 50ms;
 }
