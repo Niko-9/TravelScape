@@ -833,9 +833,13 @@ button[type="submit"] {
     visibility: hidden;
   }
   #main-nav #nav-links li {
-    margin: 50px;
+    margin: 40px;
     color: #0b2027;
     opacity: 0;
+  }
+  #main-nav #nav-links li.isolated
+  {
+    margin-left: 0;
   }
   .burgerToggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
