@@ -798,9 +798,6 @@ button[type="submit"] {
 /*Introduce Media Queries for smalle devices screens*/
 
 @media only screen and (max-width: 992px) {
-  #introduction-trip-section img {
-    width: 80%;
-  }
   #layout-content {
     display: flex;
     flex-flow: column;
