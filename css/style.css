@@ -207,10 +207,10 @@ section > h2 {
   height: 60px;
 }
 
-#main-nav h1 {
-  font-family: cursive;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+#main-nav h1 a
+{
+  display: flex;
+  align-items: center;
 }
 #main-nav #nav-links {
   display: flex;
