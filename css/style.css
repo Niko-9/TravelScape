@@ -839,7 +839,12 @@ button[type="submit"] {
   }
   #main-nav #nav-links li.isolated
   {
-    margin-left: 0;
+    margin-left: 40px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next
+  {
+    display: none;
   }
   .burgerToggle .line1 {
     transform: rotate(-45deg) translate(-5px, 6px);
