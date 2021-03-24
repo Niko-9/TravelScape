@@ -862,6 +862,9 @@ button[type="submit"] {
     align-items: center;
     flex-wrap: wrap;
   }
+  #sign-form #social-media {
+    width: 80%;
+  }
   #sign-form form::before {
     display: none;
   }
