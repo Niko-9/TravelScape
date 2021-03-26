@@ -105,11 +105,12 @@ a {
   width: 300px;
   height: 200px;
   margin: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: var(--border-width-card) solid transparent;
+  transition: all 250ms 25ms;
 }
 .card > * {
-  border-radius: inherit;
+  border-radius: 4px;
 }
 .card-img {
   width: 100%;
@@ -565,7 +566,7 @@ button[type="submit"] {
 }
 #top-destination-section .card a:hover img {
   filter: contrast(100%) brightness(40%);
-  transition: all 250ms 50ms;
+  transition: all 250ms 25ms;
 }
 
 /*top trips styling*/
@@ -787,7 +788,7 @@ button[type="submit"] {
 }
 #gallery img:hover {
   filter: contrast(100%) brightness(40%);
-  transition: all 250ms 50ms;
+  transition: all 100ms 25ms;
 }
 #gallery img {
   width: 100%;
